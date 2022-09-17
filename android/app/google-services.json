@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "597137680937",
+    "firebase_url": "https://uber-driver-2bdfe-default-rtdb.firebaseio.com",
+    "project_id": "uber-driver-2bdfe",
+    "storage_bucket": "uber-driver-2bdfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597137680937:android:3f203e2e332d7eaaf7ca38",
+        "android_client_info": {
+          "package_name": "com.example.uber_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpMF5I76-x7OndXnu_y0qG7uctbmztf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597137680937:android:f302fb7b161c571af7ca38",
+        "android_client_info": {
+          "package_name": "com.mudit.uber_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597137680937-h9nna92u7lhg5marq71e6dfri2ilbvea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mudit.uber_clone",
+            "certificate_hash": "7b1c0c4058e276977b30650e7264321bd514dfa7"
+          }
+        },
+        {
+          "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpMF5I76-x7OndXnu_y0qG7uctbmztf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597137680937:android:663335e1e8a6141df7ca38",
+        "android_client_info": {
+          "package_name": "com.mudit.uber_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597137680937-psrcq5jmhfde6hpupb7fq396jfrhbvff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mudit.uber_driver",
+            "certificate_hash": "7b1c0c4058e276977b30650e7264321bd514dfa7"
+          }
+        },
+        {
+          "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpMF5I76-x7OndXnu_y0qG7uctbmztf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597137680937-vp415mi9537eu5t9fs7pe7pclnjogk39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
