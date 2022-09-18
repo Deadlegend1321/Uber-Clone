@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uber_clone/assistants/assistant_methods.dart';
 import 'package:uber_clone/global/global.dart';
@@ -25,10 +26,30 @@ class _MainScreenState extends State<MainScreen> {
   GlobalKey<ScaffoldState> skey = GlobalKey<ScaffoldState>();
   double searchHeight = 220;
 
+  Position? userCurrentPosition;
+  var geoLocator = Geolocator();
+  LocationPermission? _locationPermission;
+
+  checkIfPermissionAllowed() async{
+    _locationPermission = await Geolocator.requestPermission();
+    if(_locationPermission == LocationPermission.denied){
+      _locationPermission = await Geolocator.requestPermission();
+    }
+  }
+
+  locateUserPosition() async{
+    Position currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    userCurrentPosition = currentPosition;
+    LatLng latLngPosition = LatLng(userCurrentPosition!.latitude, userCurrentPosition!.longitude);
+    CameraPosition cameraPosition = CameraPosition(target: latLngPosition, zoom: 14);
+    newGoogleMapController!.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
 
   @override
   void initState() {
     super.initState();
+    checkIfPermissionAllowed();
   }
 
   blackThemeGoogleMap(){
@@ -216,10 +237,13 @@ class _MainScreenState extends State<MainScreen> {
               initialCameraPosition: _kGooglePlex,
             mapType: MapType.normal,
             myLocationEnabled: true,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
             onMapCreated: (GoogleMapController controller){
               _controllerGoogleMap.complete(controller);
               newGoogleMapController = controller;
               blackThemeGoogleMap();
+              locateUserPosition();
             },
           ),
           Positioned(
@@ -266,8 +290,86 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                             const SizedBox(
                               width: 12,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                    "From",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12
+                                  ),
+                                ),
+                                Text(
+                                  "Your Current Location",
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14
+                                  ),
+                                ),
+                              ],
                             )
                           ],
+                        ),
+                        const SizedBox(height: 10,),
+                        const Divider(
+                          height: 1,
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(height: 16,),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.add_location_alt_outlined,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "To",
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 12
+                                  ),
+                                ),
+                                Text(
+                                  "Your Destination",
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10,),
+                        const Divider(
+                          height: 1,
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(height: 16,),
+                        ElevatedButton(
+                            onPressed: (){
+
+                            },
+                            child: const Text(
+                              "Request a Ride"
+                            ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.green,
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
+                            )
+                          ),
                         )
                       ],
                     ),
